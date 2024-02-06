@@ -1,7 +1,7 @@
 
 
 import {  useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 
 import { FaEyeSlash,FaEye, } from "react-icons/fa";
@@ -15,6 +15,8 @@ import Swal from "sweetalert2";
     const {signInUser,signInWithGoogle} = useContext(AuthContext)
     
     const [showPassword,setShowPassword] = useState(false)
+    const navigate = useNavigate();
+    const location = useLocation();
     
     console.log('login location',location);
     const handleLogin = e => {
@@ -28,7 +30,7 @@ import Swal from "sweetalert2";
        .then( result => {
         console.log(result.user);
         e.target.reset();
-        //navigate(location?.state? location.state:'/')
+        navigate(location?.state? location.state:'/')
        
        })
        .catch(error => {
@@ -40,7 +42,7 @@ import Swal from "sweetalert2";
         signInWithGoogle()
         .then(result => {
             console.log(result.user)
-            //navigate(location?.state? location.state:'/')
+            navigate(location?.state? location.state:'/')
         })
         .catch(error => {
           Swal.fire(error)
@@ -50,13 +52,13 @@ import Swal from "sweetalert2";
     
       
     return (
-        <div className="bg-blue-100 py-20 container mx-auto rounded-lg my-20 ">
+        <div className="  container mx-auto rounded-lg mt-10 my-20">
                 
               <p className="flex justify-center"> 
                  <FaRegEnvelopeOpen className=" text-2xl font-bold text-blue-700"></FaRegEnvelopeOpen></p>
                <h3 className="text-2xl md:text-3xl mt-3  text-center font-medium md:font-semibold
                  text-blue-700 "> Login your account</h3>
-            <div className="w-4/6 lg:w-3/5 bg-white rounded-lg shadow-md py-14 m-auto mt-10 ">
+            <div className="w-4/6 lg:w-3/5 bg-blue-100 rounded-lg shadow-md py-14 m-auto mt-10 ">
                 
                 <form onSubmit={handleLogin} className=" w-4/5 md:w-3/4 lg:w-3/4 mx-auto">
                 <div className="form-control">

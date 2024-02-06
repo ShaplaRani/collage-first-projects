@@ -77,7 +77,7 @@ const Register = () => {
         })
     }
     return (
-        <div className=" bg-blue-100 py-20 container mx-auto rounded-lg my-20">
+        <div className=" container mx-auto rounded-lg mt-10 my-20">
              
               <div className="">
                 <p className="flex justify-center"> 
@@ -85,7 +85,7 @@ const Register = () => {
                <h3 className="text-2xl md:text-3xl mt-3  text-center font-medium md:font-bold
                  text-blue-700 "> Register your account</h3>
              </div>
-            <div className="w-4/6 lg:w-3/5 bg-white  rounded-lg shadow-md py-10 m-auto mt-10 ">
+            <div className="w-4/6 lg:w-3/5 bg-blue-100  rounded-lg shadow-md py-10 m-auto mt-10 ">
                
                 <form onSubmit={handleRegister} className="w-4/5 md:w-3/4 lg:w-3/4 mx-auto">
                     <div className="form-control">
